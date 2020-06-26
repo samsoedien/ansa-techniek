@@ -10,7 +10,7 @@ const Page: React.FC<IPageProps> = ({ children }) => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-9">{children}</div>
+        <div className="col-12">{children}</div>
       </div>
     </div>
   )

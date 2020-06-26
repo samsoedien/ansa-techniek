@@ -6,6 +6,7 @@ import styles from './App.module.scss'
 import Header from './templates/Header'
 import Footer from './templates/Footer'
 import Page from './templates/Page'
+import ContactForm from './templates/ContactForm'
 
 export interface IAppProps {}
 
@@ -15,7 +16,7 @@ const App: React.FC<IAppProps> = () => (
     <Page>
       <main>
         <h3>OVER ANSA-TECHNIEK</h3>
-        <p className="text-left">
+        <p>
           Ansa-Techniek heeft ruim 30 jaar ervaring in de installatietechniek en werkt veel samen met andere
           ZZP&apos;ers. Wij worden veel ingehuurd door andere installatiebedrijven. Ansa-techniek beschikt over
           materialen van een hoge kwaliteit om elke klus uit te voeren. Heeft u een probleem met uw elektrische
@@ -25,6 +26,8 @@ const App: React.FC<IAppProps> = () => (
           grote klus gaat, is de prijs- en kwaliteitsverhouding zeer belangrijk voor ons en zorgen wij ervoor een
           uitstekende service te verlenen waar wij beiden tevreden over kunnen zijn.
         </p>
+
+        <ContactForm />
       </main>
     </Page>
     <Footer />
