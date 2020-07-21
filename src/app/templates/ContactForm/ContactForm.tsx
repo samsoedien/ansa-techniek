@@ -1,93 +1,88 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
-// import styles from './ContactForm.module.scss'
+import PropTypes from 'prop-types'
+import { Formik, Form } from 'formik'
+import * as Yup from 'yup'
 
-export interface IContactFormProps {}
+import Input from '../../components/Input'
 
-const ContactForm: React.FC<IContactFormProps> = () => {
+interface IContactFormProps {
+  onSubmitCallback: () => void
+}
+
+const ContactFormSchema = Yup.object().shape({
+  firstName: Yup.string().min(2, 'Must be at least 3 characters').max(15, 'Must be less than 15 characters').required(),
+  lastName: Yup.string().min(2, 'Must be at least 3 characters').max(15, 'Must be less than 15 characters').required(),
+})
+
+const ContactForm: React.FC<IContactFormProps | any> = ({ onSubmitCallback }) => {
   return (
-    <form>
-      <div className="container">
-        <div className="row">
-          <div className="col-6">
-            <div className="form-group">
-              <label htmlFor="name">Voornaam*</label>
-              <input type="name" className="form-control" id="name" aria-describedby="emailHelp" placeholder="" />
+    <Formik
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        onSubmitCallback(values)
+        resetForm()
+        setSubmitting(false)
+        // dispatch action alert
+      }}
+      initialValues={{
+        firstName: '',
+        lastName: '',
+        address: '',
+        postalCode: '',
+        city: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+      }}
+      validationSchema={ContactFormSchema}
+    >
+      {(props) => (
+        <Form>
+          <div className="container">
+            <div className="row pb-3">
+              <div className="col-6">
+                <Input name="firstName" label="Voornaam*" />
+              </div>
+              <div className="col-6">
+                <Input name="lastName" label="Achternaam" />
+              </div>
             </div>
-          </div>
-          <div className="col-6">
-            <div className="form-group">
-              <label htmlFor="surname">Achternaam*</label>
-              <input type="name" className="form-control" id="surname" aria-describedby="emailHelp" placeholder="" />
+            <div className="row pb-3">
+              <div className="col-6">
+                <Input name="address" label="Adres + Huisnummer" />
+              </div>
+              <div className="col-4">
+                <Input name="postalCode" label="Postcode" />
+              </div>
+              <div className="col-2">
+                <Input name="city" label="Woonplaats" />
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-7">
-            <div className="form-group">
-              <label htmlFor="name">Adress + Huisnummer</label>
-              <input type="text" className="form-control" id="address" aria-describedby="emailHelp" placeholder="" />
+            <div className="row pb-3">
+              <Input name="email" label="E-mailadress*" />
             </div>
-          </div>
-          <div className="col-2">
-            <div className="form-group">
-              <label htmlFor="name">Postcode</label>
-              <input type="text" className="form-control" id="address" aria-describedby="emailHelp" placeholder="" />
+            <div className="row pb-3">
+              <Input name="phone" label="Telefoonnummer*" />
             </div>
-          </div>
-          <div className="col-3">
-            <div className="form-group">
-              <label htmlFor="name">Woonplaats</label>
-              <input type="text" className="form-control" id="address" aria-describedby="emailHelp" placeholder="" />
+            <div className="row pb-3">
+              <Input name="subject" label="Onderwerp*" />
             </div>
+            <div className="row pb-3">
+              <Input name="message" label="Uw Bericht*" />
+            </div>
+            <button type="submit" className="btn btn-primary" disabled={props.isSubmitting || !props.dirty}>
+              {props.isSubmitting ? 'Laden...' : 'Verzenden'}
+            </button>{' '}
           </div>
-        </div>
-
-        <div className="row">
-          <div className="form-group">
-            <label htmlFor="name">E-mailadres*</label>
-            <input type="text" className="form-control" id="address" aria-describedby="emailHelp" placeholder="" />
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="form-group">
-            <label htmlFor="name">Telefoonnummer*</label>
-            <input type="text" className="form-control" id="address" aria-describedby="emailHelp" placeholder="" />
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="form-group">
-            <label htmlFor="name">Uw bericht*</label>
-            <textarea className="form-control" id="exampleFormControlTextarea1" rows={6}></textarea>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-            <label className="form-check-label" htmlFor="defaultCheck1">
-              Offerte Gewenst
-            </label>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-            <label className="form-check-label" htmlFor="defaultCheck1">
-              Voorkeur datum uitvoering gewenst
-            </label>
-          </div>
-        </div>
-
-        <button type="submit" className="btn btn-primary float-right">
-          Submit
-        </button>
-      </div>
-    </form>
+        </Form>
+      )}
+    </Formik>
   )
 }
 
-ContactForm.propTypes = {}
+ContactForm.propTypes = {
+  onSubmitCallback: PropTypes.func.isRequired,
+  isSubmitting: PropTypes.func.isRequired,
+}
 
 export default ContactForm

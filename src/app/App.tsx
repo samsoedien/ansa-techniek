@@ -6,7 +6,7 @@ import styles from './App.module.scss'
 import Header from './templates/Header'
 import Footer from './templates/Footer'
 import Page from './templates/Page'
-import ContactForm from './templates/ContactForm'
+import Contact from './features/Contact'
 
 export interface IAppProps {}
 
@@ -27,7 +27,7 @@ const App: React.FC<IAppProps> = () => (
           uitstekende service te verlenen waar wij beiden tevreden over kunnen zijn.
         </p>
 
-        <ContactForm />
+        <Contact />
       </main>
     </Page>
     <Footer />
