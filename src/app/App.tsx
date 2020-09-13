@@ -14,9 +14,9 @@ export interface IAppProps {}
 
 const App: React.FC<IAppProps> = () => (
   <Router>
-    <div className={styles.App}>
+    {/* <div className={styles.App}> */}
       <Header />
-      <Page>
+      {/* <Page>
         <main>
           <h3>OVER ANSA-TECHNIEK</h3>
           <p>
@@ -37,7 +37,7 @@ const App: React.FC<IAppProps> = () => (
         </Switch>
       </Page>
       <Footer />
-    </div>
+    </div> */}
   </Router>
 )
 

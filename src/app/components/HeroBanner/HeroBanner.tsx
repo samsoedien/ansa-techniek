@@ -13,7 +13,8 @@ const HeroBanner: React.FC<IHeroBannerProps> = () => {
         <div className={styles['hero-banner__overlay']}>
           <h2 className={styles['hero-banner__heading']}>Welkom bij Ansa-Techniek</h2>
           <p className={styles['hero-banner__subheading']}>
-            Uw technisch vakman in het verlenen van installatietechniek aan huis.{' '}
+           De website is tijdelijk niet beschikbaar.<br /> 
+           Neem contact met ons op door te mailen naar <a href="mailto:info@ansa-techniek.nl" className={styles['temp-link']}>info@ansa-techniek.nl</a>{' '}
           </p>
         </div>
       </div>

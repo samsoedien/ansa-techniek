@@ -11,8 +11,8 @@ export interface IHeaderProps {}
 const Header: React.FC<IHeaderProps> = () => {
   return (
     <header className={styles.header}>
-      <Banner />
-      <Navbar />
+      {/* <Banner /> */}
+      {/* <Navbar /> */}
       <HeroBanner />
     </header>
   )
