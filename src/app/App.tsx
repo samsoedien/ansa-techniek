@@ -16,6 +16,7 @@ const App: React.FC<IAppProps> = () => (
   <Router>
     {/* <div className={styles.App}> */}
       <Header />
+      <Contact />
       {/* <Page>
         <main>
           <h3>OVER ANSA-TECHNIEK</h3>
