@@ -12,7 +12,7 @@ const Header: React.FC<IHeaderProps> = () => {
   return (
     <header className={styles.header}>
       {/* <Banner /> */}
-      <Navbar />
+      {/* <Navbar /> */}
       <HeroBanner />
     </header>
   )

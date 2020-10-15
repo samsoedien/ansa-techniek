@@ -1,36 +1,52 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Formik, Form, Field } from 'formik'
-import { TextField } from '@material-ui/core'
+import { TextField, Checkbox, FormControlLabel, Button, TextareaAutosize  } from '@material-ui/core'
 
 import styles from './ContactForm.module.scss'
 
-import { contactValidationSchema } from './contactValidationSchema'
+import { ContactValidationSchema } from './contactValidationSchema'
 
 interface IContactFormProps {
   onSubmitCallback: () => void
 }
 
+interface IContactForm {
+  firstName: string
+  lastName: string
+  address: string
+  postalCode: string
+  city: string
+  email: string
+  phone: string
+  subject: string
+  message: string
+  offerte: boolean
+}
+
+const initialValues: IContactForm = {
+  firstName: '',
+  lastName: '',
+  address: '',
+  postalCode: '',
+  city: '',
+  email: '',
+  phone: '',
+  subject: '',
+  message: '',
+  offerte: false,
+}
+
 const ContactForm: React.FC<IContactFormProps | any> = ({ onSubmitCallback }) => {
   return (
     <Formik
-      onSubmit={(values, { setSubmitting, resetForm }) => {
+      initialValues={initialValues}
+      validationSchema={ContactValidationSchema}
+      onSubmit={(values, actions) => {
         onSubmitCallback(values)
-        resetForm()
-        setSubmitting(false)
+        actions.resetForm()
+        actions.setSubmitting(false)
       }}
-      initialValues={{
-        firstName: '',
-        lastName: '',
-        address: '',
-        postalCode: '',
-        city: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-      }}
-      validationSchema={contactValidationSchema}
     >
       {({ isSubmitting, dirty, touched, errors }) => (
         <Form id="contact">
@@ -49,7 +65,6 @@ const ContactForm: React.FC<IContactFormProps | any> = ({ onSubmitCallback }) =>
                   Heeft u een klus of storing kunt u het onderstaande contact formulier invullen. Ook voor vragen kunt u
                   hiermee contact met ons opnemen.
                 </p>
-
                 <div className="col-sm-6">
                   <Field
                     component={TextField}
@@ -104,6 +119,8 @@ const ContactForm: React.FC<IContactFormProps | any> = ({ onSubmitCallback }) =>
               <Field component={TextField} name="subject" label="Onderwerp" className="mb-3" fullWidth />
               <Field
                 component={TextField}
+                multiline
+                rows={8}
                 name="message"
                 label="Uw Bericht*"
                 className="mb-3"
@@ -111,9 +128,13 @@ const ContactForm: React.FC<IContactFormProps | any> = ({ onSubmitCallback }) =>
                 helperText={touched.message && errors.message}
                 FormHelperTextProps={{ className: 'text-danger' }}
               />
-              <button type="submit" className="btn btn-primary float-right" disabled={isSubmitting}>
+              <FormControlLabel
+                control={<Field component={Checkbox} color="primary" name="offerte" />}
+                label="Offerte gewenst"
+              />
+              <Button variant="contained" color="primary" type="submit" className="float-right">
                 {isSubmitting ? 'Laden...' : 'Verzenden'}
-              </button>{' '}
+              </Button>{' '}
             </div>
           </div>
         </Form>
