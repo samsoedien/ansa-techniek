@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Formik, Form, Field } from 'formik'
-import { TextField, Checkbox, FormControlLabel, Button, TextareaAutosize  } from '@material-ui/core'
+import { TextField, Checkbox, FormControlLabel, Button } from '@material-ui/core'
+
+import Input from '../../components/Input'
 
 import styles from './ContactForm.module.scss'
 
@@ -53,21 +55,9 @@ const ContactForm: React.FC<IContactFormProps | any> = ({ onSubmitCallback }) =>
           <div className={styles['contact-form']}>
             <div className="container">
               <div className="row">
-                <h3>Contact</h3>
-                <p>
-                  Bij een aanvraag van een offerte wordt er eerst de juiste informatie verzamelt over hoe een opdracht
-                  uitgevoerd moet worden. Dit wordt gedaan om zo goed mogelijk aan uw wensen te voldoen, u duidelijk te
-                  adviseren en elkaar niet achteraf te verassen met onvoorziende extra kosten. In de meeste gevallen
-                  maken wij een afspraak om het werk op te nemen en te bespreken. We nodigen u uit om contact op te
-                  nemen voor een vrijblijvende offerte met een geldigheid van 30 dagen.
-                </p>
-                <p>
-                  Heeft u een klus of storing kunt u het onderstaande contact formulier invullen. Ook voor vragen kunt u
-                  hiermee contact met ons opnemen.
-                </p>
                 <div className="col-sm-6">
                   <Field
-                    component={TextField}
+                    as={TextField}
                     name="firstName"
                     label="Voornaam*"
                     className="mb-3"
@@ -78,7 +68,8 @@ const ContactForm: React.FC<IContactFormProps | any> = ({ onSubmitCallback }) =>
                 </div>
                 <div className="col-sm-6">
                   <Field
-                    component={TextField}
+                    as={TextField}
+                    name="lastName"
                     label="Achternaam*"
                     className="mb-3"
                     fullWidth
@@ -89,17 +80,17 @@ const ContactForm: React.FC<IContactFormProps | any> = ({ onSubmitCallback }) =>
               </div>
               <div className="row">
                 <div className="col-sm-6">
-                  <Field component={TextField} name="address" label="Adres + Huisnummer" className="mb-3" fullWidth />
+                  <Field as={TextField} name="address" label="Adres + Huisnummer" className="mb-3" fullWidth />
                 </div>
                 <div className="col-sm-4">
-                  <Field component={TextField} name="postalCode" label="Postcode" className="mb-3" fullWidth />
+                  <Field as={TextField} name="postalCode" label="Postcode" className="mb-3" fullWidth />
                 </div>
                 <div className="col-sm-2">
-                  <Field component={TextField} name="city" label="Woonplaats" className="mb-3" fullWidth />
+                  <Field as={TextField} name="city" label="Woonplaats" className="mb-3" fullWidth />
                 </div>
               </div>
               <Field
-                component={TextField}
+                as={TextField}
                 name="email"
                 label="E-mailadress*"
                 className="mb-3"
@@ -108,7 +99,7 @@ const ContactForm: React.FC<IContactFormProps | any> = ({ onSubmitCallback }) =>
                 FormHelperTextProps={{ className: 'text-danger' }}
               />
               <Field
-                component={TextField}
+                as={TextField}
                 name="phone"
                 label="Telefoonnummer*"
                 className="mb-3"
@@ -118,7 +109,7 @@ const ContactForm: React.FC<IContactFormProps | any> = ({ onSubmitCallback }) =>
               />
               <Field component={TextField} name="subject" label="Onderwerp" className="mb-3" fullWidth />
               <Field
-                component={TextField}
+                as={TextField}
                 multiline
                 rows={8}
                 name="message"
@@ -129,7 +120,7 @@ const ContactForm: React.FC<IContactFormProps | any> = ({ onSubmitCallback }) =>
                 FormHelperTextProps={{ className: 'text-danger' }}
               />
               <FormControlLabel
-                control={<Field component={Checkbox} color="primary" name="offerte" />}
+                control={<Field as={Checkbox} color="primary" name="offerte" />}
                 label="Offerte gewenst"
               />
               <Button variant="contained" color="primary" type="submit" className="float-right">

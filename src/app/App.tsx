@@ -15,9 +15,11 @@ export interface IAppProps {}
 const App: React.FC<IAppProps> = () => (
   <Router>
     {/* <div className={styles.App}> */}
-      <Header />
-      <Contact />
-      {/* <Page>
+    <Header />
+    <About />
+    <Contact />
+    <Footer />
+    {/* <Page>
         <main>
           <h3>OVER ANSA-TECHNIEK</h3>
           <p>
@@ -37,7 +39,6 @@ const App: React.FC<IAppProps> = () => (
           <Route exact path="/contact" component={Contact} />
         </Switch>
       </Page>
-      <Footer />
     </div> */}
   </Router>
 )
