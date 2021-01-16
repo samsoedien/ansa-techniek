@@ -35,7 +35,7 @@ const Contact: React.FC<IContactProps> = () => {
               <h3 className={styles['heading']}>Contact</h3>
               <p>
                 Ansa-Techniek wil zo duidelijk mogelijk met zijn klanten communiceren. Heeft u een vraag of een klus
-                neem dan gerust contact op met Ansa-Techniek.
+                neem dan gerust contact op met Ansa-Techniek. U kunt u het onderstaande contact formulier invullen en wij zullen zo spoedig mogelijk met u in contact komen.
               </p>
               <p>
                 Bij een aanvraag van een offerte wordt er eerst de juiste informatie verzamelt over hoe een opdracht
@@ -43,10 +43,6 @@ const Contact: React.FC<IContactProps> = () => {
                 adviseren en elkaar niet achteraf te verassen met onvoorziende extra kosten. In de meeste gevallen maken
                 wij een afspraak om het werk op te nemen en te bespreken. We nodigen u uit om contact op te nemen voor
                 een vrijblijvende offerte met een geldigheid van 30 dagen.
-              </p>
-              <p>
-                Heeft u een klus of storing kunt u het onderstaande contact formulier invullen. Ook voor vragen kunt u
-                hiermee contact met ons opnemen.
               </p>
               {formSubmitConfirmation ? (
                 <Alert>
