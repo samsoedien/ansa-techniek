@@ -9,6 +9,7 @@ import Contact from './features/Contact'
 import Header from './templates/Header'
 import Footer from './templates/Footer'
 import Page from './templates/Page'
+import Werkzaamheden from './features/Werkzaamheden'
 
 export interface IAppProps {}
 
@@ -17,6 +18,7 @@ const App: React.FC<IAppProps> = () => (
     {/* <div className={styles.App}> */}
     <Header />
     <About />
+    <Werkzaamheden />
     <Contact />
     <Footer />
     {/* <Page>

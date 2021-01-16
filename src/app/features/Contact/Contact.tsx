@@ -34,6 +34,10 @@ const Contact: React.FC<IContactProps> = () => {
             <div className="col-md-12">
               <h3 className={styles['heading']}>Contact</h3>
               <p>
+                Ansa-Techniek wil zo duidelijk mogelijk met zijn klanten communiceren. Heeft u een vraag of een klus
+                neem dan gerust contact op met Ansa-Techniek.
+              </p>
+              <p>
                 Bij een aanvraag van een offerte wordt er eerst de juiste informatie verzamelt over hoe een opdracht
                 uitgevoerd moet worden. Dit wordt gedaan om zo goed mogelijk aan uw wensen te voldoen, u duidelijk te
                 adviseren en elkaar niet achteraf te verassen met onvoorziende extra kosten. In de meeste gevallen maken
@@ -44,7 +48,13 @@ const Contact: React.FC<IContactProps> = () => {
                 Heeft u een klus of storing kunt u het onderstaande contact formulier invullen. Ook voor vragen kunt u
                 hiermee contact met ons opnemen.
               </p>
-              {formSubmitConfirmation ?  <Alert>Bedankt voor uw bericht. We hebben uw bericht ontvangen en we nemen zo spoedig mogelijk contact op.</Alert> : <ContactForm onSubmitCallback={onSubmitCallback} />}
+              {formSubmitConfirmation ? (
+                <Alert>
+                  Bedankt voor uw bericht. We hebben uw bericht ontvangen en we nemen zo spoedig mogelijk contact op.
+                </Alert>
+              ) : (
+                <ContactForm onSubmitCallback={onSubmitCallback} />
+              )}
             </div>
           </div>
         </div>
