@@ -41,7 +41,7 @@ const Werkzaamheden = () => {
               <li>Camera systemen plaatsen</li>
               <li>Netwerken/internet aansluiten</li>
               <li>Kabel/draad trekken</li>
-              <li>Licht en kracht installaties werkzaamheden</li>
+              <li>Laadpalen installeren</li>
             </ul>
           </div>
 
