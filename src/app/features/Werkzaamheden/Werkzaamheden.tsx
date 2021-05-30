@@ -48,7 +48,7 @@ const Werkzaamheden = () => {
           <p>Zo zijn er nog meer klussen. Alle werkzaamheden worden comfort de voorschriften uitgevoerd.</p>
 
           <p>
-            Voor een klus rekenen wij <strong>59 euro per uur</strong> inclusief b.t.w. (ma t/m vrij). Er komen geen
+            Voor een klus rekenen wij <strong>62 euro per uur</strong> inclusief b.t.w. (ma t/m vrij). Er komen geen
             extra kosten bij zoals service -en voorijkosten (m.u.v. parkeerkosten). Materialen worden apart verrekend
             tenzij u de materialen zelf heeft geregeld. Achteraf ontvangt u een factuur.
           </p>
